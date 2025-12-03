@@ -34,3 +34,47 @@ Interactive views for:
 
 ## Architecture
 
+              ┌───────────────────────────┐
+              │        Data Sources        │
+              │───────────────────────────│
+              │ • CSV files (local/cloud) │
+              │ • Online stock APIs       │
+              │ • Web scraping (news)     │
+              └──────────────┬────────────┘
+                             │
+                             ▼
+                   ┌─────────────────┐
+                   │     Meltano     │
+                   │  Extract → Load │
+                   └─────────┬───────┘
+                             │
+                             ▼
+                   ┌─────────────────┐
+                   │    BigQuery     │
+                   │ Raw + Models    │
+                   └─────────┬───────┘
+                             │
+                             ▼
+             ┌──────────────────────────┐
+             │     Great Expectations    │
+             │  Data Quality Validation  │
+             └──────────────┬───────────┘
+                             │
+                             ▼
+                   ┌─────────────────┐
+                   │     Dagster     │
+                   │ Schedules + Ops │
+                   │   Daily @ 00:00 │
+                   └─────────┬───────┘
+                             │
+                             ▼
+                   ┌─────────────────┐
+                   │    Streamlit    │
+                   │   Dashboard UI  │
+                   └─────────────────┘
+
+
+## Created By
+
+**Created by Eunice for self-exploration and learning.**
+
