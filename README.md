@@ -1,4 +1,4 @@
-+# MAG7 Data Pipelines
+# MAG7 Data Pipelines
 +
 +This project ingests and models market data for the "Magnificent Seven" equities plus key benchmarks, sentiments, and news. It uses Meltano to extract and load raw data into BigQuery, Dagster to orchestrate and validate runs (including Great Expectations), and dbt to build curated star-schema marts for analytics.
 +
