@@ -63,43 +63,43 @@ Headlines are later transformed into sentiment scores.
 
 ## Architecture
 
-                         ┌──────────────────────────────────────────┐
-              │                 Data Sources              │
+              ┌──────────────────────────────────────────┐
+              │                 Data Sources             │
               │──────────────────────────────────────────│
-              │ • yfinance (MAG7 Live Prices)             │
-              │ • CSV Files (Historical Data)             │
-              │ • Web Scraping (CNN, Yahoo, MW, CNBC)     │
+              │ • yfinance (MAG7 Live Prices)            │
+              │ • CSV Files (Historical Data)            │
+              │ • Web Scraping (CNN, Yahoo, MW, CNBC)    │
               └──────────────────────────┬───────────────┘
                                          │
                                          ▼
                           ┌─────────────────────────┐
-                          │         Meltano          │
-                          │  Extract → Load to BQ    │
+                          │         Meltano         │
+                          │  Extract → Load to BQ   │
                           └──────────────┬──────────┘
                                          │
                                          ▼
                           ┌─────────────────────────┐
-                          │        BigQuery          │
-                          │   Raw + Model Tables     │
+                          │        BigQuery         │
+                          │   Raw + Model Tables    │
                           └──────────────┬──────────┘
                                          │
                                          ▼
                ┌──────────────────────────────────────────────┐
-               │             Great Expectations                │
+               │             Great Expectations               │
                │  Data Quality (schema, ranges, nulls, fresh) │
-               └──────────────────────────┬────────────────────┘
+               └──────────────────────────┬───────────────────┘
                                           │
                                           ▼
                           ┌─────────────────────────┐
-                          │          Dagster         │
-                          │   Daily Run @ 00:00 SGT  │
-                          │   Sensors & Orchestration│
+                          │          Dagster        │
+                          │  Daily Run @ 00:00 SGT  │
+                          │  Sensors & Orchestration│
                           └──────────────┬──────────┘
                                          │
                                          ▼
                           ┌─────────────────────────┐
-                          │        Streamlit         │
-                          │     Dashboard UI         │
+                          │        Streamlit        │
+                          │     Dashboard UI        │
                           └─────────────────────────┘
 
 ## BIGQUERY TABLE STRUCTURE
